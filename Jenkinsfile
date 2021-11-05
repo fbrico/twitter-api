@@ -28,7 +28,7 @@ node {
 	}
 	stage('quality analysis') {
 		withSonarQubeEnv('sonar') {
-			withmaven(maven: 'maven') {
+			withMaven(maven: 'maven') {
 				sh "mvn sonar:sonar"
 			}
 		}
