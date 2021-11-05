@@ -26,5 +26,12 @@ node {
 			sh "mvn jib:build"
 		}
 	}
-
+	stage('quality analysis') {
+		withSonarQubeEnv('Sonar') {
+			withmaven(maven: 'maven') {
+				sh "mvn sonar:sonar"
+			}
+		}
+		}
+				
 }
